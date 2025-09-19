@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ChevronLeft, ChevronRight } from "lucide-react"; // arrow icons
 import AboutSection from "./component/AboutSection";
 import ContactSection from "./component/ContactSection";
@@ -27,12 +28,14 @@ const LandingPage = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handlePrev = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? videos.length - 1 : prev - 1
     );
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleNext = () => {
     setCurrentIndex((prev) =>
       prev === videos.length - 1 ? 0 : prev + 1
@@ -60,7 +63,7 @@ const LandingPage = () => {
 
           {/* Video + Arrows Container */}
           <div className="relative flex items-center justify-center gap-x-2 sm:gap-x-4 mt-4">
-            {/* Left Arrow */}
+            {/* Left Arrow (currently disabled) */}
             {/*
             <button
               onClick={handlePrev}
@@ -88,7 +91,7 @@ const LandingPage = () => {
               )}
             </div>
 
-            {/* Right Arrow */}
+            {/* Right Arrow (currently disabled) */}
             {/*
             <button
               onClick={handleNext}
