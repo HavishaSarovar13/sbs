@@ -15,32 +15,20 @@ import TeamSection from "./component/TeamSection";
 import HistoryTimeline from "./component/History";
 
 const LandingPage = () => {
-  // ✅ Video data with title + description
+  // ✅ Video data with title + description + date
   const videos = [
     {
       url: "https://www.youtube.com/embed/dTDheaqUTzM",
       title:
         "POSH (Prevention of Sexual Harassment) Training at Sudhanand Business Solutions | Building Safer Workplaces",
+      date: "15-09-2025",
       description:
         "Sudhanand Business Solutions conducted POSH training with Rtn. Col. Ravi Shirahatti (Retd.), engaging 150 plus employees across Mysuru, Bengaluru, ARC Sportzone, and Sudhanand Four Seasons to reinforce a safe, respectful, and inclusive workplace.",
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? videos.length - 1 : prev - 1
-    );
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === videos.length - 1 ? 0 : prev + 1
-    );
-  };
+  // ✅ Only use currentIndex since setCurrentIndex is not needed
+  const [currentIndex] = useState(0);
 
   const currentVideo = videos[currentIndex];
 
@@ -63,17 +51,6 @@ const LandingPage = () => {
 
           {/* Video + Arrows Container */}
           <div className="relative flex items-center justify-center gap-x-2 sm:gap-x-4 mt-4">
-            {/* Left Arrow (currently disabled) */}
-            {/*
-            <button
-              onClick={handlePrev}
-              className="bg-orange-100 hover:bg-orange-200 text-orange-600 p-3 rounded-full transition z-10"
-              aria-label="Previous video"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            */}
-
             {/* Video Frame */}
             <div className="relative w-full aspect-video rounded-2xl shadow-xl overflow-hidden bg-black">
               {currentVideo ? (
@@ -90,23 +67,12 @@ const LandingPage = () => {
                 <p className="text-gray-600">Insert your video link here</p>
               )}
             </div>
-
-            {/* Right Arrow (currently disabled) */}
-            {/*
-            <button
-              onClick={handleNext}
-              className="bg-orange-100 hover:bg-orange-200 text-orange-600 p-3 rounded-full transition z-10"
-              aria-label="Next video"
-            >
-              <ChevronRight size={22} />
-            </button>
-            */}
           </div>
 
-          {/* Title + Description */}
+          {/* Title + Date + Description */}
           <div className="mt-6">
             <h3 className="text-2xl font-bold text-orange-600">
-              {currentVideo.title}
+              {currentVideo.title} | {currentVideo.date}
             </h3>
             <p className="text-md text-gray-600 mt-3 max-w-2xl mx-auto">
               {currentVideo.description}
