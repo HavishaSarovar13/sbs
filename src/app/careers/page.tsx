@@ -1,9 +1,8 @@
-
 'use client'
 import Link from 'next/link'
 import SecondNavBar from '../component/SecondNavBar';
 import FooterSection from '../component/FooterSection';
-import { motion } from 'framer-motion';
+import { motion, Variants, easeOut } from 'framer-motion'; // <-- imported easeOut properly
 import { FaArrowRight, FaLightbulb, FaUsers, FaLaptopCode, FaHandsHelping, FaChartLine } from 'react-icons/fa';
 
 const navItems = [
@@ -12,9 +11,10 @@ const navItems = [
   { name: "About Us", link: "/about" },
 ];
 
-const fadeInUp = {
+// Typed the fadeInUp as Variants and used easeOut from framer-motion instead of string
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } }
 };
 
 const CareerSection = () => {
@@ -86,7 +86,7 @@ const CareerSection = () => {
               className="mt-10 flex items-center justify-center gap-x-6"
             >
               <Link
-                href="careers/apply"
+                href="/careers/apply"
                 className="rounded-md bg-gradient-to-r from-orange-600 to-orange-500 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:from-orange-700 hover:to-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 transition-all duration-300 hover:shadow-orange-200 hover:scale-105"
               >
                 View Open Positions
@@ -135,4 +135,4 @@ const CareerSection = () => {
   )
 }
 
-export default CareerSection
+export default CareerSection;
