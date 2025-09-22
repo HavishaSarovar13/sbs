@@ -33,7 +33,7 @@ const imageZoom = {
         opacity: 1,
         transition: {
             duration: 0.8,
-            ease: [0.25, 0.1, 0.25, 1]
+            ease: "cubic-bezier(0.25, 0.1, 0.25, 1)"  // <--- fixed easing here
         }
     }
 };
@@ -76,7 +76,6 @@ const Page = () => {
                                 alt={team.name}
                                 fill
                                 className="object-scale-down object-center"
-                                
                                 priority
                                 quality={90}
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
